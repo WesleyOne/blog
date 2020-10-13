@@ -1,8 +1,8 @@
 # theme: jekyll-rtd-theme
 remote_theme: rundocs/jekyll-rtd-theme
 
-title: cake-template🍰
-description: cake-template学习笔记
+title: 🍰随笔
+description: 随笔：技术、生活
 
 # 开启自定义排序
 readme_index:
