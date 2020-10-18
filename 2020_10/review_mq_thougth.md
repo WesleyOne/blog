@@ -1,11 +1,10 @@
 ---
-sort: 1
+sort: 90000
 title: MQ消费优雅重试
 tags: RocketMQ 消费者 消息重试
 ---
 
 # MQ消费失败优雅重试
-
 
 
 ## 前言
