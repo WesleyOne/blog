@@ -161,7 +161,11 @@ ThreadLocalMap getMap(Thread t) {
 
 如下根据官方提供的时序图修改的：
 
+[下载drawio]({{ site.baseurl }}/assets/drawio/TTL.drawio)
+
 ![时序图]({{ site.baseurl }}/assets/images/TTL.png){:.border.rounded}
+
+![时序图](../assets/images/TTL.png){:.border.rounded}
 
 写个小demo：
 
