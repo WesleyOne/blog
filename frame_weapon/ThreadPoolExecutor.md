@@ -117,8 +117,6 @@ title: ThreadPoolExecutor
 
 [drawio下载]({{ site.baseurl }}/assets/drawio/线程池.drawio)
 
-![时序图]({{ site.baseurl }}/assets/images/线程池主流程.png){:.border.rounded}
-
 ![时序图](../assets/images/线程池主流程.png){:.border.rounded}
 
 

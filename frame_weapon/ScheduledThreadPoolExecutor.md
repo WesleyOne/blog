@@ -62,6 +62,4 @@ title: ScheduledThreadPoolExecutor
 
 [drawio下载]({{ site.baseurl }}/assets/drawio/线程池.drawio)
 
-![时序图]({{ site.baseurl }}/assets/images/线程池-ScheduledExecutorService.png){:.border.rounded}
-
 ![时序图](../assets/images/线程池-ScheduledExecutorService.png){:.border.rounded}

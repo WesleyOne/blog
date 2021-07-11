@@ -163,8 +163,6 @@ ThreadLocalMap getMap(Thread t) {
 
 [下载drawio]({{ site.baseurl }}/assets/drawio/TTL.drawio)
 
-![时序图]({{ site.baseurl }}/assets/images/TTL.png){:.border.rounded}
-
 ![时序图](../assets/images/TTL.png){:.border.rounded}
 
 写个小demo：
