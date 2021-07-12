@@ -48,7 +48,8 @@ title: ScheduledThreadPoolExecutor
 	1. 获取数组坐标，任务对象`ScheduledFutureTask`时快速获取（O(log n)），其他类型则遍历数组（O(n)不建议自定义任务类型）。
 	2. 自上而下堆排`siftDown`，如移除是最后一个则再自下而上堆排`siftUp`。
 
-> [DelayedWorkQueue及堆排详细解释见:https://blog.csdn.net/nobody_1/article/details/99684009](https://blog.csdn.net/nobody_1/article/details/99684009)
+> DelayedWorkQueue及堆排详细解释见:[https://blog.csdn.net/nobody_1/article/details/99684009](https://blog.csdn.net/nobody_1/article/details/99684009)
+> 动画见：[https://www.cnblogs.com/java-chen-hao/archive/2019/01/16/10275910.html](https://www.cnblogs.com/java-chen-hao/archive/2019/01/16/10275910.html)
 
 
 
@@ -63,3 +64,49 @@ title: ScheduledThreadPoolExecutor
 [drawio下载]({{ site.baseurl }}/assets/drawio/线程池.drawio)
 
 ![时序图](../assets/images/线程池-ScheduledExecutorService.png){:.border.rounded}
+
+
+
+# DelayedWorkQueue堆排
+
+> 声明：动画来源网络
+
+延时工作队列采用的是最小堆结构，即顶部元素是最小的。最小堆有利于获取最小值元素。
+
+实际存储是数组形式，通过以下索引计算关联父子节点，抽象成二叉树；
+
+```
+当前元素所在数组下标i;
+该元素所在二叉树的父节点对应的数组下标为(i-1)/2	 【(i-1) >>> 1】;
+该元素所在二叉树的左子节点对应的数组下标为2*i+1	【(k << 1) + 1】;
+该元素所在二叉树的右子节点对应的数组下标为2*i+2	【(k << 1) + 2】;
+```
+
+结合任务等待工作队列，任务比作元素（图中的一个球），剩余等待时间比作球内数值。
+
+**添加元素时（新增任务siftUp）：**
+
+1. 先将当前元素添加到最后；
+2. 将当前元素与其父节点元素的数值进行比较，前者更小时位置交换；
+3. 一直向上比较，直至值不小于父节点或已到达顶点节点结束；
+
+![img](../assets/images/delayedworkqueue_offer.gif)
+
+
+
+**移除顶点节点（取最近任务siftDown）：**
+
+1. 移除顶点节点；
+2. 将最后一个节点移到顶点节点；
+3. 将移动到顶点后的节点，与其左右子节点中值更小的位置交换；
+4. 直到该节点值更小或者没有子节点后结束；
+
+![img](../assets/images/delayedworkqueue_take.gif)
+
+
+
+
+
+**番外：最大堆的添加及移除:**
+
+![img](../assets/images/heap_order.gif)
